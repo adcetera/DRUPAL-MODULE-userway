@@ -1,5 +1,17 @@
 <?php
 
+
+/**
+ * Implements template_preprocess().
+ */
+function adc_accessibe_preprocess(&$variables) {
+  $settings = \Drupal::config('adc_accessibe.settings');
+
+  if (isset($settings)) {
+    $variables['accessibe_enabled'] = $settings->get('enabled');
+  }
+}
+
 /**
  * Implements hook_page_bottom().
  */
