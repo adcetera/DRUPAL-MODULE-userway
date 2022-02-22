@@ -8,7 +8,7 @@
     attach: function(context, settings) {
       var $acsbLinks = $('a[href="#showacsb"]');
       $acsbLinks.each(function(i, link) {
-        $(link).attr('data-acsb-custom-trigger="true"', 'true');
+        $(link).attr('data-acsb-custom-trigger', 'true');
         $(link).attr('href', 'javascript:void(0);');
       });
     }
