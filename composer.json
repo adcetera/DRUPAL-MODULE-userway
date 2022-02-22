@@ -1,0 +1,15 @@
+{
+  "name": "adcetera/adcetera_accessibe",
+  "description": "Adcetera accessiBe - A simple module to inject accessiBe scripts into a site.",
+  "type": "drupal-module",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Adcetera",
+      "email": "hello@adcetera.com",
+      "homepage": "https://www.adcetera.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "GPL-3.0+"
+}
