@@ -1,0 +1,6 @@
+name: Adcetera - accessiBe
+type: module
+description: Module that allows admins to add accessiBe script tags to a site.
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Accessibility'
