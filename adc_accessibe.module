@@ -13,6 +13,21 @@ function adc_accessibe_preprocess(&$variables) {
 }
 
 /**
+ * Implements hook_page_attachments().
+ *
+ * @param array $attachments
+ */
+function adc_accessibe_page_attachments(array &$attachments) {
+  $settings = \Drupal::config('adc_accessibe.settings');
+
+  if (!$settings->get('enabled')) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'adc_accessibe/base';
+}
+
+/**
  * Implements hook_page_bottom().
  */
 function adc_accessibe_page_bottom(array &$page_bottom) {

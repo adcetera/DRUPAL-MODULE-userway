@@ -1,0 +1,7 @@
+base:
+  version: VERSION
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
