@@ -4,4 +4,6 @@ base:
     js/script.js: {}
   dependencies:
     - core/drupal
+    - core/drupalSettings
     - core/jquery
+    - core/once

@@ -1,0 +1,5 @@
+userway_embed.settings_form:
+  title: 'Userway Settings'
+  route_name: userway_embed.settings_form
+  description: 'Configure Userway settings'
+  parent: system.admin_config_ui

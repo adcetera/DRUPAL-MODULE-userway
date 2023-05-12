@@ -1,0 +1,5 @@
+name: Userway Embed
+type: module
+description: Module that allows admins to add the Userway script tags to a site.
+core_version_requirement: ^9.2 || ^10
+package: Accessibility

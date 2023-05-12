@@ -1,0 +1,55 @@
+<?php
+
+
+/**
+ * Implements template_preprocess().
+ */
+function userway_embed_preprocess(&$variables) {
+  $settings = \Drupal::config('userway_embed.settings');
+
+  if (isset($settings)) {
+    $variables['userway_enabled'] = $settings->get('enabled');
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $attachments
+ */
+function userway_embed_page_attachments(array &$attachments) {
+  $settings = \Drupal::config('userway_embed.settings');
+
+  if (!$settings->get('enabled')) {
+    return;
+  }
+
+  if (!$settings->get('custom_trigger_enabled')) {
+    return;
+  }
+
+  $drupalSettings = [
+    'custom_trigger' => $settings->get('custom_trigger'),
+    'custom_trigger_selector' => $settings->get('custom_trigger_selector')
+  ];
+
+  $attachments['#attached']['drupalSettings']['userway_embed'] = $drupalSettings;
+  $attachments['#attached']['library'][] = 'userway_embed/base';
+}
+
+/**
+ * Implements hook_page_bottom().
+ */
+function userway_embed_page_bottom(array &$page_bottom) {
+  $settings = \Drupal::config('userway_embed.settings');
+
+  if (!$settings->get('enabled')) {
+    return;
+  }
+
+  $page_bottom['userway_embed'] = [
+    '#type'  => 'html_tag',
+    '#tag'   => 'script',
+    '#value' => $settings->get('script'),
+  ];
+}
