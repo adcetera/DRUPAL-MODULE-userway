@@ -41,15 +41,19 @@ function userway_embed_page_attachments(array &$attachments) {
  * Implements hook_page_bottom().
  */
 function userway_embed_page_bottom(array &$page_bottom) {
-  $settings = \Drupal::config('userway_embed.settings');
+  $currentUser = \Drupal::currentUser();
+  if ($currentUser->isAnonymous()) {
 
-  if (!$settings->get('enabled')) {
-    return;
+    $settings = \Drupal::config('userway_embed.settings');
+
+    if (!$settings->get('enabled')) {
+      return;
+    }
+
+    $page_bottom['userway_embed'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'script',
+      '#value' => $settings->get('script'),
+    ];
   }
-
-  $page_bottom['userway_embed'] = [
-    '#type'  => 'html_tag',
-    '#tag'   => 'script',
-    '#value' => $settings->get('script'),
-  ];
 }
